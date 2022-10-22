@@ -4,7 +4,7 @@ Um aplicatico para consulta de pokémons
 
 ## Sobre
 
-contem as seguintes funções:
+Contem as seguintes funções:
 
 - Filtrar lista de pokémons por CP máximo
 - Filtrar pokémom por tipo
