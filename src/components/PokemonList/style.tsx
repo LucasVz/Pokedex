@@ -9,8 +9,14 @@ const Container = styled.div`
 
   margin-top: 50px;
 
-  max-width: 596px;
-  max-height: 718px;
+  width: 596px;
+  @media (min-width: 1800px) {
+    width: 70%;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+  height: 718px;
   background: #f4f4f4;
   border-radius: 50px 50px 0px 0px;
 `;
@@ -35,6 +41,7 @@ const Pokemons = styled.div`
   flex-wrap: wrap;
   gap: 5px;
   overflow-y: scroll;
+  justify-content: center;
 
   &&::-webkit-scrollbar {
     width: 12px;

@@ -8,6 +8,9 @@ const CardPokemom = styled.div`
   align-items: center;
   width: 240px;
   height: 80px;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 
   padding: 8px;
   margin-bottom: 8px;
@@ -52,7 +55,6 @@ const MaxCp = styled.div`
 
   width: 54px;
   height: 19px;
-  background: #662c91;
   border-radius: 4px;
 
   span {
@@ -69,6 +71,19 @@ const Number = styled.p`
   top: 12px;
   right: 15px;
 `;
-const InfoPokemom = styled.div``;
+const InfoPokemom = styled.div`
+  .red {
+    background-color: #f87060;
+  }
+  .purple {
+    background-color: #662c91;
+  }
+  .yellow {
+    background-color: #f5b700;
+  }
+  .blue {
+    background-color: #00c1fd;
+  }
+`;
 
 export { CardPokemom, ImagePokemon, MaxCp, Name, Types, Number, InfoPokemom };

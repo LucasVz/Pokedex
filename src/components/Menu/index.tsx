@@ -1,4 +1,4 @@
-import { Option, Logo, MenuOptions, Container } from "./style";
+import { Option, Logo, MenuOptions, Container, Version } from "./style";
 import VoltbrasLogo from "../../assets/logo.png";
 import Ajuda from "../../assets/ajuda.png";
 import Conquista from "../../assets/conquista.png";
@@ -10,44 +10,45 @@ export function Menu() {
   return (
     <Container>
       <Logo>
-        <img src={VoltbrasLogo} alt="logo" />
+        <img src={VoltbrasLogo} alt="logo da Voltbras" />
         <div>
           <h1>Voltbras App</h1>
-          <h2>Pokemon Manager</h2>
+          <h2>Pokémon Manager</h2>
         </div>
       </Logo>
       <MenuOptions>
         <Option>
           <div className="active">
-            <img src={MenuBar} alt="" />
+            <img src={MenuBar} alt="menu" />
           </div>
           <p className="active-text">Lista</p>
         </Option>
         <Option>
           <div>
-            <img src={Conquista} alt="" />
+            <img src={Conquista} alt="conquista" />
           </div>
           <p>Conquista</p>
         </Option>
         <Option>
           <div>
-            <img src={Pokedex} alt="" />
+            <img src={Pokedex} alt="Pokedex" />
           </div>
-          <p>Pokedex</p>
+          <p>Pokédex</p>
         </Option>
         <Option>
           <div>
-            <img src={Ajuda} alt="" />
+            <img src={Ajuda} alt="Ajuda" />
           </div>
           <p>Ajuda</p>
         </Option>
         <Option>
           <div>
-            <img src={Configuracao} alt="" />
+            <img src={Configuracao} alt="Configuracao" />
           </div>
           <p>Configuração</p>
         </Option>
       </MenuOptions>
+      <Version>Versão 5.12.485</Version>
     </Container>
   );
 }
