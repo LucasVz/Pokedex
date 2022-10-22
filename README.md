@@ -1,4 +1,4 @@
-# Lista Pokémom
+# Lista Pokémon
 
 Um aplicatico para consulta de pokémons
 
