@@ -58,6 +58,9 @@ const MaxCp = styled.div`
   border-radius: 4px;
 
   span {
+   display: flex;
+  align-items: center;
+  justify-content: center;
     font-size: 14px;
     font-weight: bold;
 
