@@ -4,12 +4,15 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-
+  margin-bottom: 65px;
   @media (max-width: 1320px) {
     justify-content: center;
   }
+  @media (max-width: 600px) {
+    margin-bottom: 25px;
+  }
   img {
-    width: 52px;
+    width: 96%;
     height: auto;
   }
   h1 {
@@ -25,7 +28,6 @@ const Logo = styled.div`
     color: #939393;
     white-space: nowrap;
   }
-  margin-bottom: 65px;
 `;
 const MenuOptions = styled.div`
   display: flex;
@@ -85,6 +87,7 @@ const Container = styled.div`
   margin-top: 100px;
   @media (max-width: 1320px) {
     width: 100%;
+    margin-left: 0;
   }
 `;
 

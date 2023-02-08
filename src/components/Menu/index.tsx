@@ -11,10 +11,6 @@ export function Menu() {
     <Container>
       <Logo>
         <img src={VoltbrasLogo} alt="logo da Voltbras" />
-        <div>
-          <h1>Voltbras App</h1>
-          <h2>Pokémon Manager</h2>
-        </div>
       </Logo>
       <MenuOptions>
         <Option>
