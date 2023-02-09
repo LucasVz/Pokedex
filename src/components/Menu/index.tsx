@@ -44,7 +44,6 @@ export function Menu() {
           <p>Configuração</p>
         </Option>
       </MenuOptions>
-      <Version>Versão 5.12.485</Version>
     </Container>
   );
 }
