@@ -69,7 +69,6 @@ export function FilterPokemon({ setSelectedTypes, CPValue, setCPValue }: any) {
         max={5000}
         value={CPValue}
         onChange={(ev, v: any) => setCPValue(v)}
-        onChangeCommitted={(ev, v) => console.log(v)}
         valueLabelDisplay="off"
         aria-labelledby="range-slider"
       />

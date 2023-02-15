@@ -3,6 +3,8 @@ import { GET_POKEMONS } from "../../graphql/pokemons";
 import { Container, Title, PokemonCounter, Pokemons } from "./style";
 import { PokemonCard } from "../PokemonCard";
 import { ThreeDots } from "react-loader-spinner";
+import { useEffect, useState } from "react";
+
 export interface Pokemon {
   id: number;
   name: string;
@@ -11,45 +13,50 @@ export interface Pokemon {
   types: string;
   maxCP: number;
 }
-export function PokemonsList({ CPValue, selectedTypes }: any) {
-  const { data: { pokemons = [] } = {} } = useQuery(GET_POKEMONS, {
+
+interface Props {
+  CPValue: number[];
+  selectedTypes: string[];
+}
+
+export function PokemonsList({ CPValue, selectedTypes }: Props) {
+  const { data: { pokemons = [] } = {}, loading } = useQuery(GET_POKEMONS, {
     variables: { first: 151 },
   });
-  const filter: any = [];
-  for (let i = 0; i < pokemons.length; i++) {
-    if (
-      selectedTypes.length === 0 &&
-      pokemons[i].maxCP > CPValue[0] &&
-      pokemons[i].maxCP < CPValue[1]
-    ) {
-      filter.push(pokemons[i]);
-    }
-    for (let j = 0; j < selectedTypes.length; j++) {
-      if (
-        pokemons[i].types[1] &&
-        pokemons[i].types[1].indexOf(selectedTypes[j]) === 0 &&
-        pokemons[i].maxCP > CPValue[0] &&
-        pokemons[i].maxCP < CPValue[1]
-      ) {
-        filter.push(pokemons[i]);
-      }
 
-      if (
-        pokemons[i].types[0].indexOf(selectedTypes[j]) === 0 &&
-        pokemons[i].maxCP > CPValue[0] &&
-        pokemons[i].maxCP < CPValue[1]
-      ) {
-        filter.push(pokemons[i]);
-      }
+  const [filter, setFilter] = useState<Pokemon[]>([]);
+  const [isFiltering, setIsFiltering] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!loading) {
+      setIsFiltering(true);
+      const filterByType = (pokemon: Pokemon) => {
+        return (
+          selectedTypes.length === 0 ||
+          selectedTypes.some((type: string) => pokemon.types.includes(type))
+        );
+      };
+
+      const filterByCP = (pokemon: Pokemon) => {
+        return pokemon.maxCP >= CPValue[0] && pokemon.maxCP <= CPValue[1];
+      };
+
+      const filtered = pokemons.filter(
+        (pokemon: Pokemon) => filterByType(pokemon) && filterByCP(pokemon)
+      );
+
+      setFilter(filtered);
+      setIsFiltering(false);
     }
-  }
+  }, [pokemons, selectedTypes, CPValue, loading]);
+
   const pokemomCount = filter.length;
   return (
     <Container>
       <Title>Lista de pokémons</Title>
       <PokemonCounter>Total visíveis {pokemomCount}</PokemonCounter>
       <Pokemons>
-        {filter.length === 0 ? (
+        {loading || isFiltering ? (
           <ThreeDots
             height="80"
             width="80"

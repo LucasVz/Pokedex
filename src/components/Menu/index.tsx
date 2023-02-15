@@ -1,4 +1,4 @@
-import { Option, Logo, MenuOptions, Container, Version } from "./style";
+import { Option, Logo, MenuOptions, Container } from "./style";
 import VoltbrasLogo from "../../assets/logo.png";
 import Ajuda from "../../assets/ajuda.png";
 import Conquista from "../../assets/conquista.png";
